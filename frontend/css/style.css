@@ -675,3 +675,57 @@ color:#2E7D32;
 font-weight:700;
 
 }
+/* FORM */
+
+form label{
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.form-control,
+.form-select{
+
+height:55px;
+
+border-radius:15px;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+box-shadow:none;
+
+border:2px solid #2E7D32;
+
+}
+.dashboard-box{
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+margin-bottom:30px;
+
+}
+
+.progress{
+
+height:18px;
+
+border-radius:30px;
+
+}
+
+.progress-bar{
+
+font-weight:bold;
+
+}
