@@ -24,9 +24,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <div class="container">
 
 <a class="navbar-brand fw-bold text-success fs-3" href="index.html">
-
 🌱 EcoDNA
-
 </a>
 
 </div>
@@ -44,9 +42,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <div class="dashboard-box">
 
 <h2 class="text-center mb-4">
-
 Generate Your EcoDNA
-
 </h2>
 
 <form id="ecoForm">
@@ -91,7 +87,7 @@ Generate Your EcoDNA
 
 <label>Construction Year</label>
 
-<input type="number" class="form-control">
+<input type="number" class="form-control" required>
 
 </div>
 
@@ -99,7 +95,7 @@ Generate Your EcoDNA
 
 <label>Roof Area (sq.ft)</label>
 
-<input type="number" class="form-control">
+<input type="number" class="form-control" required>
 
 </div>
 
@@ -107,7 +103,7 @@ Generate Your EcoDNA
 
 <label>Monthly Electricity (kWh)</label>
 
-<input type="number" class="form-control">
+<input type="number" class="form-control" required>
 
 </div>
 
@@ -115,7 +111,7 @@ Generate Your EcoDNA
 
 <label>Monthly Water Usage (Litres)</label>
 
-<input type="number" class="form-control">
+<input type="number" class="form-control" required>
 
 </div>
 
@@ -123,7 +119,7 @@ Generate Your EcoDNA
 
 <label>Number of Occupants</label>
 
-<input type="number" class="form-control">
+<input type="number" class="form-control" required>
 
 </div>
 
@@ -145,12 +141,10 @@ Generate Your EcoDNA
 
 </div>
 
-<div class="col-12 mt-4 text-center">
+<div class="col-12 text-center mt-4">
 
-<button class="btn btn-success btn-lg px-5">
-
+<button type="submit" class="btn btn-success btn-lg px-5">
 Generate EcoDNA Report
-
 </button>
 
 </div>
@@ -158,6 +152,69 @@ Generate EcoDNA Report
 </div>
 
 </form>
+<div id="resultCard" class="card shadow-lg mt-5 border-0" style="display:none;">
+    <div class="card-body">
+
+        <h2 class="text-center text-success mb-4">
+            🌱 EcoDNA Sustainability Report
+        </h2>
+
+        <h4 id="buildingTitle"></h4>
+
+        <hr>
+
+        <div class="row text-center">
+
+            <div class="col-md-4">
+                <h5>Overall Score</h5>
+                <h1 id="overallScore" class="text-success"></h1>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Carbon</h5>
+                <h2 id="carbon"></h2>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Energy</h5>
+                <h2 id="energy"></h2>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <h5>Water</h5>
+                <h2 id="water"></h2>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <h5>Climate</h5>
+                <h2 id="climate"></h2>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <h5>Biodiversity</h5>
+                <h2 id="bio"></h2>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h4>🤖 AI Recommendations</h4>
+
+        <ul class="list-group">
+
+            <li class="list-group-item">☀ Install Rooftop Solar Panels</li>
+
+            <li class="list-group-item">💧 Install Rainwater Harvesting</li>
+
+            <li class="list-group-item">💡 Replace old lights with LEDs</li>
+
+            <li class="list-group-item">🌳 Increase Green Cover</li>
+
+        </ul>
+
+    </div>
+</div>
 
 </div>
 

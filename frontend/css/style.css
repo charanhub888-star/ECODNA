@@ -809,3 +809,85 @@ cursor:pointer;
 .nav-link:hover{
     color: white !important;
 }
+.eco-card{
+
+    padding:25px;
+    border-radius:25px;
+    background:white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    text-align:center;
+    transition:0.3s;
+
+}
+
+
+.eco-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+.score-card{
+
+    background:linear-gradient(
+    135deg,
+    #16a34a,
+    #22c55e
+    );
+
+    color:white;
+
+}
+
+
+
+.carbon{
+
+    border-top:8px solid #16a34a;
+
+}
+
+
+.energy{
+
+    border-top:8px solid #facc15;
+
+}
+
+
+.water{
+
+    border-top:8px solid #06b6d4;
+
+}
+
+
+.climate{
+
+    border-top:8px solid #6366f1;
+
+}
+
+
+.bio{
+
+    border-top:8px solid #22c55e;
+
+}
+
+
+
+.progress{
+
+    height:12px;
+    border-radius:20px;
+
+}
+
+
+.progress-bar{
+
+    border-radius:20px;
+
+}
