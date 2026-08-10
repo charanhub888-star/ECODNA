@@ -4,37 +4,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!ecoForm) return;
 
-
     ecoForm.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
-
         const inputs = document.querySelectorAll("input");
         const selects = document.querySelectorAll("select");
-
 
         const electricity = Number(inputs[4].value);
         const water = Number(inputs[5].value);
         const roof = Number(inputs[3].value);
 
-
-
+        // ==============================
         // AI Sustainability Calculation
+        // ==============================
 
         const carbon_score = Math.max(
             50,
             100 - Math.floor(electricity / 10)
         );
 
-        const energy_score = roof > 1000 ? 90 : 75;
+        const energy_score =
+            roof > 1000 ? 90 : 75;
 
-        const water_score = water < 10000 ? 90 : 70;
+        const water_score =
+            water < 10000 ? 90 : 70;
 
         const biodiversity_score = 80;
 
         const climate_score = 85;
-
 
         const overall_score = Math.round(
             (
@@ -46,10 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ) / 5
         );
 
-
+        // ==============================
+        // Building Data
+        // ==============================
 
         const data = {
-
 
             building_name: inputs[0].value,
 
@@ -57,7 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             construction_year: inputs[2].value,
 
-            material: selects[1].value,
+            material: selects[1]
+                ? selects[1].value
+                : "",
 
             roof_area: inputs[3].value,
 
@@ -66,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
             water_usage: inputs[5].value,
 
             occupants: inputs[6].value,
-
 
             carbon_score,
 
@@ -82,87 +82,77 @@ document.addEventListener("DOMContentLoaded", () => {
 
         };
 
-
-
         console.log("Sending Data:", data);
 
-
+        // ==============================
+        // Send Building Data
+        // ==============================
 
         try {
 
-
-            // Save report to backend
-
             const response = await fetch(
-                "http://localhost:3000/api/buildings",
+                "/api/buildings",
                 {
+                    method: "POST",
 
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":"application/json"
+                    headers: {
+                        "Content-Type": "application/json"
                     },
 
-                    body:JSON.stringify(data)
-
+                    body: JSON.stringify(data)
                 }
             );
 
-
-
             const result = await response.json();
 
+            console.log(
+                "Backend Response:",
+                result
+            );
 
-            console.log("Backend Response:", result);
+            if (response.ok) {
 
-
-
-            if(response.ok){
-
-
-                // Get latest generated report
+                // ==============================
+                // Get Latest Report
+                // ==============================
 
                 const reportResponse = await fetch(
-                    "http://localhost:3000/api/buildings"
+                    "/api/buildings"
                 );
 
+                if (!reportResponse.ok) {
+                    throw new Error(
+                        "Could not retrieve reports"
+                    );
+                }
 
-                const reports = await reportResponse.json();
-
-
+                const reports =
+                    await reportResponse.json();
 
                 const latestReport =
                     reports[reports.length - 1];
 
-
-
-                // Save for dashboard
+                // ==============================
+                // Save Report
+                // ==============================
 
                 localStorage.setItem(
                     "report",
                     JSON.stringify(latestReport)
                 );
 
-
-
-window.location.href="dashboard.html";
-
                 alert(
                     "🌱 EcoDNA Report Generated Successfully!"
                 );
 
-
-
-                // Redirect to dashboard
+                // ==============================
+                // Redirect to Dashboard
+                // ==============================
 
                 window.location.href =
-                "dashboard.html";
+                    "dashboard.html";
 
-
-
-            }
-            else{
-
+            } else {
 
                 alert(
                     result.message ||
@@ -171,57 +161,127 @@ window.location.href="dashboard.html";
 
             }
 
+        } catch (error) {
 
-
-        }
-        catch(error){
-
-
-            console.error(error);
-
-
-            alert(
-                "Backend not connected!"
+            console.error(
+                "Building API Error:",
+                error
             );
 
+            alert(
+                "Backend not connected or an error occurred."
+            );
 
         }
-
-
 
     });
 
-
-});
-async function sendMessage(){
-
-let message =
-document.getElementById("userInput").value;
-
-
-let response = await fetch(
-"/api/chat"{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-message:message
-})
 });
 
 
-let data = await response.json();
+// ======================================
+// EcoDNA AI Chat
+// ======================================
 
+async function sendMessage() {
 
-document.getElementById("chatBox").innerHTML +=
-`
-<p><b>You:</b> ${message}</p>
+    const input =
+        document.getElementById("userInput");
 
-<p>
-<b>EcoDNA AI:</b>
-${data.reply}
-</p>
-`;
+    const chatBox =
+        document.getElementById("chatBox");
+
+    if (!input || !chatBox) {
+        console.error(
+            "Chat elements not found."
+        );
+        return;
+    }
+
+    const message =
+        input.value.trim();
+
+    if (!message) {
+        return;
+    }
+
+    // Show user message
+
+    chatBox.innerHTML += `
+        <div class="user-message">
+            <strong>You:</strong> ${message}
+        </div>
+    `;
+
+    input.value = "";
+
+    try {
+
+        const response = await fetch(
+            "/api/chat",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    message: message
+                })
+            }
+        );
+
+        const data =
+            await response.json();
+
+        console.log(
+            "Chat Response:",
+            data
+        );
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                "Chat request failed"
+            );
+
+        }
+
+        // Support common backend response formats
+
+        const reply =
+            data.reply ||
+            data.response ||
+            data.message ||
+            "Sorry, I couldn't generate a response.";
+
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                <strong>EcoDNA AI:</strong> ${reply}
+            </div>
+        `;
+
+        // Scroll to latest message
+
+        chatBox.scrollTop =
+            chatBox.scrollHeight;
+
+    } catch (error) {
+
+        console.error(
+            "Chat API Error:",
+            error
+        );
+
+        chatBox.innerHTML += `
+            <div class="bot-message">
+                <strong>EcoDNA AI:</strong>
+                Sorry, I couldn't connect to the AI service.
+            </div>
+        `;
+
+    }
 
 }
