@@ -8,119 +8,188 @@
 
 <title>EcoDNA Dashboard</title>
 
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/style.css">
-
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-
 </head>
 
+<body style="background:#f5f7f9;">
 
-<body>
-
-
-<nav class="navbar navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
 
 <div class="container">
 
 <a class="navbar-brand fw-bold text-success fs-3">
-
 🌱 EcoDNA Dashboard
-
 </a>
-
 
 <a href="index.html" class="btn btn-success">
-
 Home
-
 </a>
-
 
 </div>
 
 </nav>
 
+<div class="container mt-4">
 
+<h2 class="fw-bold">
+Welcome to EcoDNA Dashboard 👋
+</h2>
 
+<p class="text-muted">
+AI Powered Sustainability Monitoring Platform
+</p>
+
+<div class="row mt-4">
+
+<div class="col-md-3">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h6>Total Buildings</h6>
+
+<h2 class="text-success">
+1
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h6>EcoDNA Score</h6>
+
+<h2 id="topScore" class="text-primary">
+0%
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h6>Certificate</h6>
+
+<h2 class="text-warning">
+Ready
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h6>Grade</h6>
+
+<h2 id="topGrade" class="text-success">
+A
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="container py-5">
 
+<div class="row">
 
+<div class="col-lg-4">
 
-<div class="row g-4">
+<div class="card shadow border-0">
 
-
-<!-- SCORE CARD -->
-
-<div class="col-md-4">
-
-
-<div class="dashboard-box text-center">
-
+<div class="card-body text-center">
 
 <h4>
 Overall EcoDNA Score
 </h4>
 
-
-<div class="score-circle" id="overallScore">
+<div
+id="overallScore"
+style="
+width:170px;
+height:170px;
+border-radius:50%;
+background:#198754;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:45px;
+font-weight:bold;
+margin:auto;
+">
 
 0%
 
 </div>
 
-
-<h5 class="mt-4 text-success" id="rating">
+<h3
+class="mt-4 text-success"
+id="rating">
 
 Loading...
 
-</h5>
-
+</h3>
 
 <hr>
 
-
-<p>
-<strong>Building:</strong>
-</p>
-
-
-<h5 id="buildingName">
+<h4 id="buildingName">
 
 Loading...
 
-</h5>
+</h4>
 
-
-<p id="location">
+<p
+class="text-muted"
+id="location">
 
 </p>
 
-
+</div>
 
 </div>
 
-
 </div>
 
+<div class="col-lg-8">
 
+<div class="card shadow border-0">
 
-
-
-<!-- DNA CARDS -->
-
-<div class="col-md-8">
-
-
-<div class="dashboard-box">
-
+<div class="card-body">
 
 <h3>
 
@@ -128,24 +197,16 @@ Loading...
 
 </h3>
 
-
 <hr>
 
-
-
-
-<!-- Carbon -->
-
-
-<h5>
-🌿 Carbon Gene
-</h5>
-
+<h5>🌿 Carbon Gene</h5>
 
 <div class="progress mb-4">
 
-<div class="progress-bar bg-success"
-id="carbonBar">
+<div
+id="carbonBar"
+class="progress-bar bg-success"
+style="width:0%">
 
 0%
 
@@ -153,22 +214,13 @@ id="carbonBar">
 
 </div>
 
-
-
-
-
-<!-- Energy -->
-
-
-<h5>
-⚡ Energy Gene
-</h5>
-
+<h5>⚡ Energy Gene</h5>
 
 <div class="progress mb-4">
 
-<div class="progress-bar bg-warning"
-id="energyBar">
+<div
+id="energyBar"
+class="progress-bar bg-warning">
 
 0%
 
@@ -176,23 +228,13 @@ id="energyBar">
 
 </div>
 
-
-
-
-
-
-<!-- Water -->
-
-
-<h5>
-💧 Water Gene
-</h5>
-
+<h5>💧 Water Gene</h5>
 
 <div class="progress mb-4">
 
-<div class="progress-bar bg-info"
-id="waterBar">
+<div
+id="waterBar"
+class="progress-bar bg-info">
 
 0%
 
@@ -200,23 +242,13 @@ id="waterBar">
 
 </div>
 
-
-
-
-
-
-<!-- Climate -->
-
-
-<h5>
-🌡 Climate Gene
-</h5>
-
+<h5>🌳 Biodiversity Gene</h5>
 
 <div class="progress mb-4">
 
-<div class="progress-bar bg-primary"
-id="climateBar">
+<div
+id="bioBar"
+class="progress-bar bg-success">
 
 0%
 
@@ -224,23 +256,13 @@ id="climateBar">
 
 </div>
 
+<h5>🌡 Climate Gene</h5>
 
+<div class="progress">
 
-
-
-
-<!-- Biodiversity -->
-
-
-<h5>
-🌳 Biodiversity Gene
-</h5>
-
-
-<div class="progress mb-4">
-
-<div class="progress-bar bg-success"
-id="bioBar">
+<div
+id="climateBar"
+class="progress-bar bg-primary">
 
 0%
 
@@ -248,277 +270,417 @@ id="bioBar">
 
 </div>
 
-
+</div>
 
 </div>
 
-
 </div>
 
-
 </div>
+<!-- ================= AI RECOMMENDATIONS ================= -->
 
+<div class="card shadow border-0 mt-5">
 
-
-
-
-<br>
-
-
-
-
-<!-- AI RECOMMENDATION -->
-
-
-<div class="dashboard-box">
-
+<div class="card-body">
 
 <h3>
-
-🤖 AI Recommendations
-
+🤖 AI Sustainability Advisor
 </h3>
-
 
 <hr>
 
+<div class="alert alert-success">
 
-<ul>
+<h5>Overall Analysis</h5>
 
+<p id="aiAnalysis">
+Loading AI Recommendation...
+</p>
 
-<li>
-☀ Install Rooftop Solar Panels
-</li>
+</div>
 
+<div class="row">
 
-<li>
-💡 Replace CFL bulbs with LED lighting
-</li>
+<div class="col-md-6">
 
+<div class="card border-success mb-3">
 
-<li>
-💧 Install Rainwater Harvesting
-</li>
+<div class="card-body">
 
+<h5>☀ Solar Energy</h5>
 
-<li>
-🌳 Increase Green Cover
-</li>
+<p id="solarTip">
+Suitable for rooftop solar installation.
+</p>
 
+</div>
 
-<li>
-♻ Improve Waste Segregation
-</li>
+</div>
 
+</div>
 
-</ul>
+<div class="col-md-6">
 
+<div class="card border-primary mb-3">
+
+<div class="card-body">
+
+<h5>💧 Water Saving</h5>
+
+<p id="waterTip">
+Install rainwater harvesting.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card border-warning mb-3">
+
+<div class="card-body">
+
+<h5>💡 Energy Efficiency</h5>
+
+<p id="energyTip">
+Upgrade to LED lighting.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card border-success mb-3">
+
+<div class="card-body">
+
+<h5>🌳 Green Cover</h5>
+
+<p id="greenTip">
+Increase plantation around the building.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 
+<!-- ================= BUILDING SUMMARY ================= -->
+
+<div class="card shadow border-0 mt-5">
+
+<div class="card-body">
+
+<h3>
+📋 Building Summary
+</h3>
+
+<hr>
+
+<table class="table table-bordered table-striped">
+
+<tr>
+<th>Building Name</th>
+<td id="summaryBuilding"></td>
+</tr>
+
+<tr>
+<th>Location</th>
+<td id="summaryLocation"></td>
+</tr>
+
+<tr>
+<th>Construction Year</th>
+<td id="summaryYear"></td>
+</tr>
+
+<tr>
+<th>Material</th>
+<td id="summaryMaterial"></td>
+</tr>
+
+<tr>
+<th>Roof Area</th>
+<td id="summaryRoof"></td>
+</tr>
+
+<tr>
+<th>Electricity Usage</th>
+<td id="summaryElectricity"></td>
+</tr>
+
+<tr>
+<th>Water Usage</th>
+<td id="summaryWater"></td>
+</tr>
+
+<tr>
+<th>Occupants</th>
+<td id="summaryOccupants"></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
 
 
+<!-- ================= FUTURE INSIGHTS ================= -->
 
-<br>
+<div class="card shadow border-0 mt-5">
+
+<div class="card-body">
+
+<h3>
+📊 Sustainability Insights
+</h3>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-6 text-center">
+
+<i class="fas fa-chart-pie fa-5x text-success mb-3"></i>
+
+<h5>EcoDNA Analytics</h5>
+
+<p class="text-muted">
+
+Future versions will display AI analytics, sustainability trends and yearly performance.
+
+</p>
+
+</div>
+
+<div class="col-md-6 text-center">
+
+<i class="fas fa-seedling fa-5x text-success mb-3"></i>
+
+<h5>Future AI Prediction</h5>
+
+<p class="text-muted">
+
+Predict how your EcoDNA Score improves after implementing recommendations.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 
+<div class="text-center mt-5 mb-5">
 
-<div class="text-center">
+<a
+href="certificate.html"
+class="btn btn-success btn-lg px-5">
 
-
-<a href="certificate.html"
-class="btn btn-success btn-lg">
-
-
-Generate Sustainability Certificate
-
+🏆 Download Sustainability Certificate
 
 </a>
 
-
 </div>
-
-
-
-</div>
-
-
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 
 <script>
 
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded",()=>{
+    // ============================
+    // LOAD REPORT FROM LOCAL STORAGE
+    // ============================
 
+    const report = JSON.parse(localStorage.getItem("report"));
 
-const report =
-JSON.parse(localStorage.getItem("report"));
+    if (!report) {
 
+        alert("No EcoDNA Report Found!");
 
+        window.location.href = "create.html";
 
-if(!report){
+        return;
 
+    }
 
-alert("No report found. Generate report first.");
+    // ============================
+    // BUILDING DETAILS
+    // ============================
 
-return;
+    document.getElementById("buildingName").innerText =
+        report.building_name;
 
+    document.getElementById("location").innerText =
+        report.location;
 
-}
+    document.getElementById("summaryBuilding").innerText =
+        report.building_name;
 
+    document.getElementById("summaryLocation").innerText =
+        report.location;
 
+    document.getElementById("summaryYear").innerText =
+        report.construction_year;
 
+    document.getElementById("summaryMaterial").innerText =
+        report.material;
 
-// Building Details
+    document.getElementById("summaryRoof").innerText =
+        report.roof_area + " sq.ft";
 
+    document.getElementById("summaryElectricity").innerText =
+        report.electricity_bill + " kWh";
 
-document.getElementById("buildingName").innerHTML =
-report.building_name;
+    document.getElementById("summaryWater").innerText =
+        report.water_usage + " Litres";
 
+    document.getElementById("summaryOccupants").innerText =
+        report.occupants;
 
+    // ============================
+    // ECO SCORE
+    // ============================
 
-document.getElementById("location").innerHTML =
-report.location;
+    document.getElementById("overallScore").innerText =
+        report.overall_score + "%";
 
+    document.getElementById("topScore").innerText =
+        report.overall_score + "%";
 
+    let grade = "C";
+    let rating = "Needs Improvement";
 
+    if(report.overall_score >= 90){
 
+        grade = "A+";
+        rating = "Excellent ⭐⭐⭐";
 
-// Score
+    }
 
+    else if(report.overall_score >= 80){
 
-document.getElementById("overallScore").innerHTML =
-report.overall_score+"%";
+        grade = "A";
+        rating = "Excellent ⭐";
 
+    }
 
+    else if(report.overall_score >= 70){
 
+        grade = "B";
+        rating = "Good 👍";
 
+    }
 
-// Rating
+    document.getElementById("topGrade").innerText = grade;
+    document.getElementById("rating").innerText = rating;
 
+    // ============================
+    // UPDATE PROGRESS BARS
+    // ============================
 
-if(report.overall_score >= 85)
+    function updateBar(id,value){
 
-{
+        const bar = document.getElementById(id);
 
-document.getElementById("rating").innerHTML =
-"Excellent ⭐";
+        bar.style.width = value + "%";
 
-}
+        bar.innerText = value + "%";
 
+    }
 
-else if(report.overall_score >=70)
+    updateBar("carbonBar",report.carbon_score);
 
-{
+    updateBar("energyBar",report.energy_score);
 
-document.getElementById("rating").innerHTML =
-"Good 👍";
+    updateBar("waterBar",report.water_score);
 
-}
+    updateBar("bioBar",report.biodiversity_score);
 
+    updateBar("climateBar",report.climate_score);
 
-else
+    // ============================
+    // AI RECOMMENDATIONS
+    // ============================
 
-{
+    let analysis =
+    "Excellent sustainability performance.";
 
-document.getElementById("rating").innerHTML =
-"Needs Improvement";
+    if(report.overall_score < 90){
 
-}
+        analysis =
+        "Installing rooftop solar panels, rainwater harvesting, LED lighting and increasing green cover can improve your EcoDNA score.";
 
+    }
 
+    if(report.overall_score < 75){
 
+        analysis =
+        "Major improvements are recommended in renewable energy, water conservation, biodiversity and waste management.";
 
+    }
 
+    document.getElementById("aiAnalysis").innerText =
+        analysis;
 
+    document.getElementById("solarTip").innerText =
+        report.carbon_score < 85 ?
+        "Install rooftop solar panels." :
+        "Solar performance is good.";
 
-// Progress Bars
+    document.getElementById("waterTip").innerText =
+        report.water_score < 85 ?
+        "Reduce water consumption with rainwater harvesting." :
+        "Water management is efficient.";
 
+    document.getElementById("energyTip").innerText =
+        report.energy_score < 85 ?
+        "Upgrade to LED lighting and efficient appliances." :
+        "Energy efficiency is excellent.";
 
-let carbon =
-document.getElementById("carbonBar");
-
-
-carbon.style.width =
-report.carbon_score+"%";
-
-carbon.innerHTML =
-report.carbon_score+"%";
-
-
-
-
-
-let energy =
-document.getElementById("energyBar");
-
-
-energy.style.width =
-report.energy_score+"%";
-
-energy.innerHTML =
-report.energy_score+"%";
-
-
-
-
-
-let water =
-document.getElementById("waterBar");
-
-
-water.style.width =
-report.water_score+"%";
-
-water.innerHTML =
-report.water_score+"%";
-
-
-
-
-
-let climate =
-document.getElementById("climateBar");
-
-
-climate.style.width =
-report.climate_score+"%";
-
-climate.innerHTML =
-report.climate_score+"%";
-
-
-
-
-
-let bio =
-document.getElementById("bioBar");
-
-
-bio.style.width =
-report.biodiversity_score+"%";
-
-bio.innerHTML =
-report.biodiversity_score+"%";
-
-
-
-
+    document.getElementById("greenTip").innerText =
+        report.biodiversity_score < 85 ?
+        "Increase plantation around the building." :
+        "Green cover is well maintained.";
 
 });
 
-
-
 </script>
 
-
-
 </body>
-
 </html>
+<div class="chatbot">
+
+<h2>🌱 EcoDNA AI Assistant</h2>
+
+<div id="chatBox"></div>
+
+<input 
+id="userInput"
+placeholder="Ask about sustainability..."
+>
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>

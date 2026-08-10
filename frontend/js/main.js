@@ -193,3 +193,36 @@ window.location.href="dashboard.html";
 
 
 });
+async function sendMessage(){
+
+let message =
+document.getElementById("userInput").value;
+
+
+let response = await fetch(
+"http://localhost:3000/api/chat",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+message:message
+})
+});
+
+
+let data = await response.json();
+
+
+document.getElementById("chatBox").innerHTML +=
+`
+<p><b>You:</b> ${message}</p>
+
+<p>
+<b>EcoDNA AI:</b>
+${data.reply}
+</p>
+`;
+
+}

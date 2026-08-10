@@ -891,3 +891,111 @@ cursor:pointer;
     border-radius:20px;
 
 }
+/* ================= NAVBAR IMPROVEMENT ================= */
+
+.navbar {
+
+    background: linear-gradient(
+        90deg,
+        #0f7a3d,
+        #22c55e
+    ) !important;
+
+    padding:15px 0;
+
+}
+
+
+.navbar-brand {
+
+    color:white !important;
+
+    font-weight:800;
+
+}
+
+
+.navbar .nav-link {
+
+    color:white !important;
+
+    font-weight:600;
+
+    margin:0 10px;
+
+    transition:0.3s;
+
+}
+
+
+
+.navbar .nav-link:hover {
+
+    color:#d1fae5 !important;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* Login Button */
+
+.navbar .btn-outline-success {
+
+
+    color:white !important;
+
+    border:2px solid white !important;
+
+    border-radius:30px;
+
+    padding:10px 25px;
+
+    font-weight:700;
+
+}
+
+
+
+.navbar .btn-outline-success:hover {
+
+
+    background:white !important;
+
+    color:#198754 !important;
+
+}
+
+
+
+/* Register Button */
+
+
+.navbar .btn-success {
+
+
+    background:white !important;
+
+    color:#198754 !important;
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:10px 25px;
+
+    font-weight:700;
+
+}
+
+
+
+.navbar .btn-success:hover {
+
+
+    background:#dcfce7 !important;
+
+    transform:scale(1.05);
+
+}
