@@ -8,7 +8,15 @@ const buildingRoutes = require("./routes/buildingRoutes");
 const chat = require("./routes/chat");
 
 const app = express();
+const path = require("path");
 
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+app.get("/", (req, res) => {
+    res.sendFile(
+        path.join(__dirname, "../frontend/index.html")
+    );
+});
 
 // Middleware
 app.use(cors());
