@@ -200,8 +200,7 @@ document.getElementById("userInput").value;
 
 
 let response = await fetch(
-"http://localhost:3000/api/chat",
-{
+"/api/chat"{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
